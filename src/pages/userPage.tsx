@@ -1,9 +1,9 @@
-import { Table } from "antd";
+import { Button, Table } from "antd";
 import { useUsers } from "../hooks/useUser"
 
 
 export const UserPage = () => {
-    const { data, isError, isLoading, error } = useUsers();
+    const { data, isError, isLoading, error, refetch, isFetching } = useUsers();
 
     if (isLoading) {
         return <h3 style={{ textAlign: "center", marginTop: "20px" }}>Đang tải dữ liệu bài viết...</h3>;
@@ -34,6 +34,7 @@ export const UserPage = () => {
 
     return (
         <>
+            <Button onClick={() => refetch()} loading={isFetching} type="primary" >Refetch</Button>
             <Table columns={columns} dataSource={data} />
         </>
     )

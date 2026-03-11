@@ -2,7 +2,7 @@ import { Table } from "antd";
 import { useUsers } from "../hooks/useUser"
 
 
-const UserPage = () => {
+export const UserPage = () => {
     const { data, isError, isLoading, error } = useUsers();
 
     if (isLoading) {
